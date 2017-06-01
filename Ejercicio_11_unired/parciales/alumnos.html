@@ -1,0 +1,28 @@
+<h1>Alumnos</h1>
+<h4>Listado de alumnso en el sistema</h4>
+
+<hr>
+
+<table class="table table-striped">
+	<tr>
+		<th>Código</th>
+		<th>Nombre</th>
+		<th>Teléfono</th>
+		<th>Ver</th>
+	</tr>
+	<!--Para limitar la cantidad de registros mostrados se aplica el filtro limitTo-->
+	<tr ng-repeat="alumno in alumnos | limitTo:posicion | limitTo:-5">
+		<td>{{alumno.codigo}}</td>
+		<td>{{alumno.nombre}}</td>
+		<td>{{alumno.telefono | telefono }}</td>
+		<td><a href="#/alumno">Ver Registro</a></td>
+	</tr>
+
+</table>
+<br>
+<button class="btn btn-primary"ng-click="anteriores()">Anteriores</button>
+<button class="btn btn-primary" ng-click="siguientes()">Siguientes</button>
+
+{{posicion}}
+
+<!-- {{alumnos | json}} -->

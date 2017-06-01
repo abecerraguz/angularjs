@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html ng-app="universidadApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio 02</title>
+    <!-- css de Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+
+    <!-- Incluimos la libreria de angular js -->
+    <script src="js/lib/angular.min.js"></script>
+    <script src="js/app.js"></script>
+
+    <style media="screen">
+      .avatar{
+        width:75px;
+        height: 75px;
+      }
+
+      .puntero{
+        cursor:pointer;
+      }
+    </style>
+
+
+  </head>
+  <!-- /////// IMPORTANTE /////////////////
+  https://daneden.github.io/animate.css/
+  -->
+  <body>
+        <!-- Se crea un alias profe con as -->
+        <div class="container" ng-controller="listadoCtrl">
+              <div class="row">
+                      <h1>ng-repeat</h1>
+                      <h4>Manejando repeticiones</h4>
+                      <hr>
+
+                      <ul>
+                        <li ng-repeat="nombre in listado">
+                          {{nombre}}
+                        </li>
+                      </ul>
+
+                      {{listado | json}}
+
+                      <h1>ng-repeat</h1>
+                      <h4>Tablas</h4>
+                      <hr>
+                      <table class="table table-striped" ng-repeat="docentes in listadoProfesores">
+                        <tr>
+                          <th>Nombre</th>
+                          <th>Edad</th>
+                          <th>Clase</th>
+                        </tr>
+
+                        <tr ng-repeat="profesor in listadoProfesores.profesores">
+                          <td>{{profesor.nombre}}</td>
+                          <td>{{profesor.edad}}</td>
+                          <td>{{profesor.clase}}</td>
+                        </tr>
+
+                      </table>
+
+                      {{listadoProfesores | json}}
+
+                      <h1>ng-repeat</h1>
+                      <h4>Manejando repeticiones Multiplicaciones</h4>
+                      <hr>
+
+                      <ul>
+                        <li ng-repeat="numero in [1,2,3,4,5,6,7,8,9,10]">
+                          2 x {{numero}} = {{ 2 * numero}}
+                        </li>
+                      </ul>
+
+                      <!--////////////////////////////// OderBy - En Filtros y ng-repeat ////////////////////////////// -->
+                      <h1>ng-repeat</h1>
+                      <h4>OderBy - En Filtros y ng-repeat</h4>
+                      <hr>
+
+                      <div class="container">
+                        <div class="row">
+                          Busqueda:
+                          <br>
+                          <input type="text" ng-model="busqueda.nombre" class="form-control" placeholder="Ingrese lo que desee buscar">
+                          <br>
+                          Sexo:
+                          <br>
+                          <select ng-model="busqueda.sexo" class="form-control">
+                              <option value="">Cualquiera</option>
+                              <option value="mujer">Mujeres</option>
+                              <option value="hombre">Hombres</option>
+                          </select>
+                          <br>
+                          <br>
+                        </div>
+                      </div>
+
+                      <table class="table table-striped">
+                        <tr>
+                          <th>Avatar</th>
+                          <th><a class="puntero" ng-click ="columna ='nombre'; reverse = !reverse;" >Nombre</a></th>
+                          <th><a class="puntero" ng-click ="columna ='sexo'; reverse = !reverse;">Sexo</a></th>
+                          <th>Teléfono</th>
+                          <th>Celular</th>
+                        </tr>
+
+                        <tr ng-repeat="persona in personas | filter:busqueda | orderBy:columna:reverse">
+                          <td><img ng-src="img/{{persona.avatar}}" class="avatar img-circle"/></td>
+                          <td>{{persona.nombre}}</td>
+                          <td>{{persona.sexo | uppercase}}</td>
+                          <td>{{persona.telefono}}</td>
+                          <td>{{persona.celular}}</td>
+                        </tr>
+                      </table>
+
+              </div>
+
+       </div>
+
+       <!-- /////////////// ng-options //////////////////////////-->
+       <div class="container" ng-controller="listadoCtrl">
+
+           <h1>ng-options</h1>
+           <h4>Repeticiones para elementos</h4>
+           <hr>
+           Seleccione el pais: {{paisSeleccionado}}
+           <select ng-model="paisSeleccionado" class="form-control">
+             <option value="">Seleccione:</option>
+             <option ng-repeat="pais in paises" value="{{pais.id}}">{{pais.nombre}}</option>
+
+           </select>
+
+
+
+
+       </div><!-- fin del listadoCtrl -->
+
+
+  </body>
+
+
+
+</html>

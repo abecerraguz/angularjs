@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html ng-app>
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio 01</title>
+    <!-- css de Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Incluimos la libreria de angular js -->
+    <script src="js/lib/angular.min.js" type="text/javascript">
+
+    </script>
+  </head>
+  <body>
+
+            <!-- ////////////// 1. HOLA MUNDO DE CREATEJS////////////////////-->
+            <header class="container">
+            <h1>{{"Hola Mundo desde Angular"}}</h1>
+            </header>
+
+            <!-- ////////////// 2. FILTROS o FILTER ////////////////////
+            Uso de Filtros o codigos ya realizados se encuantran en la sgte dirección:
+            https://docs.angularjs.org/api/ng/filter
+            -->
+            <div class="container">
+              <h1>Filtros :: Filters</h1>
+              <h4>En AngularJS</h4>
+              <hr>
+              <p>
+                  Filtro de texto: {{"FerNandO"}}
+                  <br>
+                  Filtro de texto: {{"FerNandO" | uppercase }}
+                  <br>
+                  Filtro de texto: {{"FerNandO" | lowercase }}
+                  <br>
+                  Filtro de moneda: {{1350}} <!-- Sin formato -->
+                  <br>
+                  Filtro de Moneda: {{1350 | currency}}
+                  <br>
+                  Fitro de Moneda: {{1350 | currency:'Col. '}}
+                  <br>
+                  Filtro de Numero: {{1350000}}<!-- Sin formato -->
+                  <br>
+                  Filtro de Número: {{1350000 | number}}
+              </p>
+
+            </div>
+
+
+            <!-- ////////////// 3. NG-MODEL ////////////////////
+            Sistema de referncia tipo variable, pero sin definir
+            -->
+            <div class="container">
+              <h1>ng-model</h1>
+              <h4>En AngularJS</h4>
+              <hr>
+              <p>
+                  Su nombre :{{nombre}}
+                  <br>
+                  <input type="text" ng-model="nombre" class="form-control" placeholder="Ingrese su nombre">
+              </p>
+              <hr>
+              <p>
+                  Seleccione el pais : {{pais}}
+                <select class="form-control" ng-model="pais">
+                  <option value="1">Chile</option>
+                  <option value="2">Argentina</option>
+                  <option value="3">Brasil</option>
+                </select>
+
+              </p>
+              <hr>
+              <p>
+                  Seleccione las opciones que desee : {{ opt1 }} {{ opt2 }}
+                  <br>
+                  <input type="checkbox" ng-model="opt1"> Opción 1
+                  <br>
+                  <input type="checkbox" ng-model="opt2"> Opción 2
+
+              </p>
+              <hr>
+              <p>
+                  Seleccione el genero : {{ genero }}
+                  <br>
+                  <input type="radio" value="M" ng-model="genero"> Masculino
+                  <br>
+                  <input type="radio" value="F" ng-model="genero"> Femenino
+
+              </p>
+            </div>
+
+            <!-- ////////////// 3. EVALUACION ////////////////////-->
+            <div class="container">
+            <h1>Evaluación</h1>
+            <h4>En AngularJS</h4>
+            <hr>
+
+            <form class="form-group">
+              <fieldset>
+                Nombre Completo:<br>
+                <input type="text" ng-model="nombre" class="form-control">
+                <br>
+                Lugar de Trabajo:<br>
+                <input type="text" ng-model="lugar" class="form-control">
+                <br>
+                Salario en Dolares:<br>
+                <input type="num" ng-model="salario" class="form-control">
+              </fieldset>
+            </form>
+            <br>
+            <p>Nombre : {{nombre | uppercase}}</p>
+            <p>Lugar de trabajo : {{lugar | lowercase}}</p>
+            <p>Salario en Dolares : {{salario | currency}}</p>
+
+          </div>
+
+  </body>
+
+
+
+</html>

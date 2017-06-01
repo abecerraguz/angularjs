@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="universidadApp" ng-controller="mainCtrl">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Universidad</title>
+
+
+        <!-- Incluir Bootstrap -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+
+        <!-- Animate.css -->
+        <link rel="stylesheet" href="css/animate.css">
+
+        <!-- Estilo personalizado -->
+        <link rel="stylesheet" href="css/style.css">
+
+        <!-- Incluir AngularJS -->
+        <script src="js/lib/angular.min.js"></script>
+
+        <!--Librerias para realizar el ng-route  -->
+        <script src="js/lib/angular-route.min.js"></script>
+
+        <!--Librerias para realizar el ng-route  -->
+        <!-- <script src="js/lib/angular-route.min.js.map"></script> -->
+
+        <script src="js/app.js"></script>
+        <!-- Viculamos el config que controla la navegación -->
+        <script src="js/config.js"></script>
+
+
+
+    </head>
+    <body>
+        <!--ng-include para realizarlo se debe declarar una variable en ng-app  -->
+      <div ng-include="menuSuperior"></div>
+
+
+        <div class="container">
+        <!-- La pagina principal ira aquí -->
+        <!-- para mostrar el contenido o se home,profesores,alumnos creamos otra directiva esta es el ng-view -->
+        <div ng-view></div>
+
+        </div><!-- /.container -->
+
+
+    </body>
+</html>

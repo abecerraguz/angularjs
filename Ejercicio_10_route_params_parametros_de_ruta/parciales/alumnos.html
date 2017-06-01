@@ -1,0 +1,41 @@
+<h1><i class="fa fa-users"></i> Alumnos</h1>
+<h4>Listado de alumnso en el sistema</h4>
+
+<hr>
+
+<div class="row" align="right">
+	<a href="#/alumno/nuevo" class="btn btn-info">
+	<i class="fa fa-user-plus" aria-hidden="true"></i>
+	Crear Alumno</a>
+	<br><br>
+</div>
+
+<table class="table table-striped">
+	<tr>
+		<th>Código</th>
+		<th>Nombre</th>
+		<th>Teléfono</th>
+		<th>Ver</th>
+	</tr>
+	<!--Para limitar la cantidad de registros mostrados se aplica el filtro limitTo-->
+	<tr ng-repeat="alumno in alumnos | limitTo:posicion | limitTo:-5">
+		<td>{{alumno.codigo}}</td>
+		<td>{{alumno.nombre}}</td>
+		<td>{{alumno.telefono | telefono }}</td>
+		<td><a href="#/alumno/{{alumno.codigo}}">Ver Registro</a></td>
+	</tr>
+
+</table>
+<br>
+<button class="btn btn-primary"ng-click="anteriores()">
+	<i class="fa fa-chevron-left"></i>
+Anteriores</button>
+<button class="btn btn-primary" ng-click="siguientes()">
+Siguientes
+<i class="fa fa-chevron-right"></i></button>
+
+<!-- {{posicion}} -->
+
+<!-- {{alumnos | json}} -->
+
+
